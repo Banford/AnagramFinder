@@ -11,10 +11,9 @@ namespace Banford.AnagramFinder.Tests
         {
             // Arrange
             var input = new[] {"abc", "cba"};
-            var finder = new AnagramFinder();
 
             // Act
-            var anagrams = finder.FindAnagrams(input);
+            var anagrams = AnagramFinder.FindAnagrams(input);
 
             // Assert
             var expected = new List<string> {"abc", "cba"};
@@ -27,10 +26,9 @@ namespace Banford.AnagramFinder.Tests
         {
             // Arrange
             var input = new[] {"abc", "cba", "bac"};
-            var finder = new AnagramFinder();
 
             // Act
-            var anagrams = finder.FindAnagrams(input);
+            var anagrams = AnagramFinder.FindAnagrams(input);
 
             // Assert
             var expected = new List<string> {"abc", "cba", "bac"};
@@ -49,10 +47,9 @@ namespace Banford.AnagramFinder.Tests
                 "fun",
                 "fnu"
             };
-            var finder = new AnagramFinder();
 
             // Act
-            var anagrams = finder.FindAnagrams(words);
+            var anagrams = AnagramFinder.FindAnagrams(words);
 
             // Assert
             Assert.Equal(2, anagrams.First().Value.Count);
@@ -63,10 +60,9 @@ namespace Banford.AnagramFinder.Tests
         {
             // Arrange
             var words = new[] { "fun" };
-            var finder = new AnagramFinder();
 
             // Act
-            var anagrams = finder.FindAnagrams(words);
+            var anagrams = AnagramFinder.FindAnagrams(words);
 
             // Assert
             Assert.Empty(anagrams);
@@ -77,10 +73,9 @@ namespace Banford.AnagramFinder.Tests
         {
             // Arrange
             var words = new[] { "fun", "cat" };
-            var finder = new AnagramFinder();
 
             // Act
-            var anagrams = finder.FindAnagrams(words);
+            var anagrams = AnagramFinder.FindAnagrams(words);
 
             // Assert
             Assert.Empty(anagrams);

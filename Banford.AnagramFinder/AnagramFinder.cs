@@ -6,7 +6,7 @@ namespace Banford.AnagramFinder
 {
     public class AnagramFinder
     {
-        public Dictionary<string, List<string>> FindAnagrams(IEnumerable<string> input)
+        public static Dictionary<string, List<string>> FindAnagrams(IEnumerable<string> input)
         {
             var anagrams = new Dictionary<string, List<string>>();
 
