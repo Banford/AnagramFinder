@@ -21,7 +21,7 @@ namespace Banford.AnagramFinder.Tests
 
             Assert.Equal(expected, anagrams.First().Value);
         }
-        
+
         [Fact]
         public void FindAnagrams_ShouldReturnAnagramsInListOfThreeWords()
         {
@@ -37,7 +37,7 @@ namespace Banford.AnagramFinder.Tests
 
             Assert.Equal(expected, anagrams.First().Value);
         }
-        
+
         [Fact]
         public void FindAnagrams_ShouldNotAddDuplicateWordsToAnagramGroup()
         {
@@ -58,7 +58,32 @@ namespace Banford.AnagramFinder.Tests
             Assert.Equal(2, anagrams.First().Value.Count);
         }
         
-        // Should not return anagram group if only one word
-        // Should not return anagram group if no anagrams
+        [Fact]
+        public void FindAnagrams_ShouldNotReturnAnAnagramGroupIfOnlyGivenOneWord()
+        {
+            // Arrange
+            var words = new[] { "fun" };
+            var finder = new AnagramFinder();
+
+            // Act
+            var anagrams = finder.FindAnagrams(words);
+
+            // Assert
+            Assert.Empty(anagrams);
+        }
+        
+        [Fact]
+        public void FindAnagrams_ShouldNotReturnAnAnagramGroupIfThereAreNoAnagrams()
+        {
+            // Arrange
+            var words = new[] { "fun", "cat" };
+            var finder = new AnagramFinder();
+
+            // Act
+            var anagrams = finder.FindAnagrams(words);
+
+            // Assert
+            Assert.Empty(anagrams);
+        }
     }
 }
