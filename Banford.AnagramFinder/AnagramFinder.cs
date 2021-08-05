@@ -1,16 +1,37 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Banford.AnagramFinder
 {
     public class AnagramFinder
     {
-        public Dictionary<string, List<string>> FindAnagrams(string[] input)
+        public Dictionary<string, List<string>> FindAnagrams(IEnumerable<string> input)
         {
-            // Hard coded to pass first test...
-            return new Dictionary<string, List<string>>
+            var anagrams = new Dictionary<string, List<string>>();
+
+            foreach (var word in input)
             {
-                {"abc", new List<string> {"abc", "cba"}}
-            };
+                var sorted = SortWordAlphabetically(word);
+
+                if (anagrams.ContainsKey(sorted))
+                {
+                    var value = anagrams[sorted];
+                    if (!value.Contains(word)) value.Add(word);
+                }
+                else
+                {
+                    anagrams.Add(sorted, new List<string> {word});
+                }
+            }
+
+            return anagrams;
+        }
+
+        private static string SortWordAlphabetically(string word)
+        {
+            var chars = word.ToCharArray();
+            Array.Sort(chars);
+            return new string(chars);
         }
     }
 }
