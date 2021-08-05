@@ -14,12 +14,12 @@ namespace Banford.AnagramFinder.Tests
             var finder = new AnagramFinder();
 
             // Act
-            var result = finder.FindAnagrams(input);
+            var anagrams = finder.FindAnagrams(input);
 
             // Assert
             var expected = new List<string> {"abc", "cba"};
 
-            Assert.Equal(expected, result.First().Value);
+            Assert.Equal(expected, anagrams.First().Value);
         }
         
         [Fact]
@@ -30,12 +30,35 @@ namespace Banford.AnagramFinder.Tests
             var finder = new AnagramFinder();
 
             // Act
-            var result = finder.FindAnagrams(input);
+            var anagrams = finder.FindAnagrams(input);
 
             // Assert
             var expected = new List<string> {"abc", "cba", "bac"};
 
-            Assert.Equal(expected, result.First().Value);
+            Assert.Equal(expected, anagrams.First().Value);
         }
+        
+        [Fact]
+        public void FindAnagrams_ShouldNotAddDuplicateWordsToAnagramGroup()
+        {
+            // Arrange
+            var words = new[]
+            {
+                "fun",
+                "fun",
+                "fun",
+                "fnu"
+            };
+            var finder = new AnagramFinder();
+
+            // Act
+            var anagrams = finder.FindAnagrams(words);
+
+            // Assert
+            Assert.Equal(2, anagrams.First().Value.Count);
+        }
+        
+        // Should not return anagram group if only one word
+        // Should not return anagram group if no anagrams
     }
 }
