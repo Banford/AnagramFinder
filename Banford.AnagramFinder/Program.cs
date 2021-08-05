@@ -9,7 +9,7 @@ namespace Banford.AnagramFinder
         static void Main(string[] args)
         {
             //var fileName = args[0];
-            const string fileName = @"C:\AnagramData\example1.txt";
+            const string fileName = @"C:\AnagramData\example2.txt";
             
             ProcessFile(fileName);
         }
@@ -36,14 +36,13 @@ namespace Banford.AnagramFinder
             }
         }
 
-        private static void ProcessBatchOfWords(string[] words, AnagramFinder finder)
+        private static void ProcessBatchOfWords(IEnumerable<string> words, AnagramFinder finder)
         {
             var anagrams = finder.FindAnagrams(words);
 
             foreach (var anagram in anagrams)
             {
-                var formatted = AnagramFormatter.FormatAnagramGroup(anagram.Value);
-                Console.WriteLine(formatted);
+                Console.WriteLine(anagram.Value.FormatAnagramGroup());
             }
         }
     }

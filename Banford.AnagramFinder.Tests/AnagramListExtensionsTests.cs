@@ -17,7 +17,7 @@ namespace Banford.AnagramFinder.Tests
             };
 
             // Act
-            var result = AnagramFormatter.FormatAnagramGroup(anagrams);
+            var result = anagrams.FormatAnagramGroup();
 
             // Assert
             Assert.Equal("fun,fnu,unf", result);
@@ -35,7 +35,7 @@ namespace Banford.AnagramFinder.Tests
             };
 
             // Act
-            var result = AnagramFormatter.FormatAnagramGroup(anagrams);
+            var result = anagrams.FormatAnagramGroup();
 
             // Assert
             Assert.Equal("abc,bac,cba", result);
@@ -48,7 +48,7 @@ namespace Banford.AnagramFinder.Tests
             var anagrams = Array.Empty<string>();
 
             // Act
-            var result = AnagramFormatter.FormatAnagramGroup(anagrams);
+            var result = anagrams.FormatAnagramGroup();
 
             // Assert
             Assert.Equal("", result);
