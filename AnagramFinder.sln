@@ -5,6 +5,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{4C9ED661-A645-4094-BE80-EA208777058D}"
 ProjectSection(SolutionItems) = preProject
 	.gitignore = .gitignore
+	README.md = README.md
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banford.AnagramFinder.Tests", "Banford.AnagramFinder.Tests\Banford.AnagramFinder.Tests.csproj", "{BFE5E026-D8AE-4EA9-ADD6-34B2BB853120}"
