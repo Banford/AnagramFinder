@@ -52,3 +52,35 @@ APM system.
 * If the word is the same word, we wouldn't count this as an anagram, as it is a duplication.
 * Only output groups of anagrams that have at least one matching word (2 versions of the anagram minimum).
 * The input will always have a new word on each line without gaps.
+
+## Language Choice
+
+The application is written in C#, primarily because this is the language I am most familiar with, but it also offers some
+advantages for this kind of solution. I can use static classes for the bulk of the algorithm reducing resources used by
+the program. I also can easily write integration tests in C# by spawning the process of the application and running it 
+with realistic input files. There is also the benefit of using third party packages like the logging library Serilog to 
+add logging to the app. However, this problem could easily be tackled in other languages and I considered using TypeScript
+instead.
+
+## Computational Complexity
+
+I haven't done an automated computational analysis of the algorithm here, however by doing an analysis of the code and 
+considering the computation of each line or loop I can determine that the main algorithm finder should be `O(n)` and scale
+linearly with the input to the function. 
+
+Next steps would be to benchmark this using a tool like BenchmarkDotNet.
+
+## Data Structures
+
+I chose to use Lists and Dictionaries for gathering the anagrams as they are easier to manipulate than using an array and 
+it provides clearer code to read than using arrays for example. I could have used a custom type rather than the Dictionary
+to represent the grouped anagrams, this may have further improved readability of the code.
+
+## With More Time
+
+With more time to work on this program I would:
+
+* Conduct benchmarking to prove my hypothesis about the computational complexity of the algorith.
+* Conduct further integration testing with more sample files.
+* Do some further passes of refactoring the code to apply clean code principles, see if some of the functionality would 
+make sense to further split out into classes or functions.
