@@ -40,6 +40,20 @@ Example 2:
 
 `dotnet run --project .\Banford.Anagrams\Banford.Anagrams.csproj ".\Data\example2.txt"`
 
+### No Dependencies Installed?
+
+If you don't have the dotnet SDK installed, I've included a compiled version of the app in the `SampleExecutables`
+directory in the root of the repository. You can use the win-x64 version and just use `Banford.AnagramFinder.exe`
+instead of the commands above. So for example:
+
+`./Banford.AnagramFinder ".\data\example1.txt"`
+
+Normally the compiled files would not be provided and checked in, this is purely for demo purposes.
+
+#### Not on Windows?
+
+I don't have a MacOS machine available to compile the application on a Mac.
+
 ## Logging
 
 Logging has been configured using [Serilog](https://serilog.net/) to output to the standard out in the console. 
