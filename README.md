@@ -50,9 +50,15 @@ instead of the commands above. So for example:
 
 Normally the compiled files would not be provided and checked in, this is purely for demo purposes.
 
-#### Not on Windows?
+#### Not on Windows and don't have dotnet installed?
 
-I don't have a MacOS machine available to compile the application on a Mac.
+There is a compiled MacOS version of the application in the `SampleExecutables` folder also.
+
+You may need to modify permissions before running the application using:
+
+`sudo chmod +x Banford.AnagramFinder`
+
+Then to run the app `./Banford.AnagramFinder data/example1.txt`
 
 ## Logging
 
@@ -78,8 +84,8 @@ instead.
 
 ## Computational Complexity
 
-I haven't done an automated computational analysis of the algorithm here, however by doing an analysis of the code and 
-considering the computation of each line or loop I can determine that the main algorithm finder should be `O(n)` and scale
+I haven't done an automated computational analysis of the function here, however by doing an analysis of the code and 
+considering the computation of each line or loop I can determine that the main anagram finder should be `O(n)` and scale
 linearly with the input to the function. 
 
 Next steps would be to benchmark this using a tool like BenchmarkDotNet.
